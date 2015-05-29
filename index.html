@@ -18,5 +18,11 @@
     <script src="compiled/src/views/AppView.js"></script>
 
     <script src="compiled/src/main.js"></script>
+    <script>
+      function delay(ms) {
+        ms += new Date().getTime();
+        while (new Date() < ms){}
+      }
+    </script>
   </body>
 </html>
