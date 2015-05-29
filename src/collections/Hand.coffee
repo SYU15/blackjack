@@ -16,15 +16,21 @@ class window.Hand extends Backbone.Collection
     @add(@deck.pop())
 
     if @scores()[0] is 21 or @scores()[1] is 21 then alert("21, recommended you stay unless you like losing money!") # 21 case
-    if @scores()[0] >= 21 then alert("BUSTED :(")
+    if @scores()[0] > 21
+      alert("BUSTED :(")
+      location.reload()
 
   stand: ->
     console.log("Player standing.");
 
   play: -> # Only for dealer
     @.at(0).flip()
+    @playHand()
+
+  playHand: ->
     while @scores()[0] < 17 or @scores()[1] < 17
       @hit()
+      setTimeout(@playHand.bind(this), 20000)
 
   hasAce: ->
     filtered = undefined
@@ -45,4 +51,9 @@ class window.Hand extends Backbone.Collection
     # when there is an ace, it offers you two scores - the original score, and score + 10.
     [@minScore(), @minScore() + 10 * @hasAce()]
 
+  bestScore: ->
+    bestScoreTotal = 0
+    bestScoreTotal = @scores()[0]
+    if (@scores()[1] > bestScoreTotal) and (@scores()[1] <= 21) then bestScoreTotal = @scores()[1]
+    return bestScoreTotal
 

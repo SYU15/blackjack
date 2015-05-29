@@ -13,6 +13,11 @@ class window.AppView extends Backbone.View
     @model.get('playerHand').stand()
     @model.get('dealerHand').play()
     # Compare results and announce winner
+    playerScore = @model.get('playerHand').bestScore()
+    dealerScore = @model.get('dealerHand').bestScore()
+    if(playerScore == dealerScore) then alert("TIE!")
+    if(playerScore > dealerScore) then alert("Player Wins :)")
+    if(dealerScore > playerScore) then alert("Dealer Wins :(")
 
   initialize: ->
     @render()
