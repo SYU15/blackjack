@@ -1,8 +1,8 @@
 class window.AppView extends Backbone.View
   template: _.template '
     <button class="hit-button">Hit</button> <button class="stand-button">Stand</button>
-    <div class="player-hand-container"></div>
-    <div class="dealer-hand-container"></div>
+    <div class="player-hand-container playingCards fourColours rotateHand"></div>
+    <div class="dealer-hand-container playingCards fourColors rotateHand" style="clear:both"></div>
   '
 
   events:
@@ -15,9 +15,9 @@ class window.AppView extends Backbone.View
     # Compare results and announce winner
     playerScore = @model.get('playerHand').bestScore()
     dealerScore = @model.get('dealerHand').bestScore()
-    if(playerScore == dealerScore) then alert("TIE!")
-    if(playerScore > dealerScore) then alert("Player Wins :)")
-    if(dealerScore > playerScore) then alert("Dealer Wins :(")
+    if(playerScore == dealerScore) then console.log("TIE!")
+    if(playerScore > dealerScore) then console.log("Player Wins :)")
+    if(dealerScore > playerScore) then console.log("Dealer Wins :(")
 
   initialize: ->
     @render()

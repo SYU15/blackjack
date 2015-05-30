@@ -1,4 +1,4 @@
-.card {
+/*.card {
   float: left;
   border: solid 1px black;
   width: 100px;
@@ -13,4 +13,8 @@
 
 .hand {
   overflow: auto;
+}
+*/
+#dealer-hand-container {
+  clear: left;
 }
