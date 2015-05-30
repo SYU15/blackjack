@@ -29,7 +29,8 @@ class window.Hand extends Backbone.Collection
     # $(".card").addClass "reveal", 5000, (->
     #   console.log('callback')
     #   @playHand()).bind(this)
-
+    console.log('hello?')
+    console.log(this.at(0))
     $(".card").addClass "reveal"
 
     # context = this
