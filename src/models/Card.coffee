@@ -2,6 +2,8 @@ class window.Card extends Backbone.Model
   initialize: (params) ->
     @set
       revealed: true
+      revealingFirstHalf: false
+      revealingSecondHalf: false
       value: if !params.rank or 10 < params.rank then 10 else params.rank
       suitName: ['spades', 'diams', 'clubs', 'hearts'][params.suit]
       # suitName: ['Spades', 'Diamonds', 'Clubs', 'Hearts'][params.suit]

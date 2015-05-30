@@ -59,11 +59,26 @@
   -webkit-border-radius: 28;
 }
 
+.back {
+  transition        : 1.0s linear;
+  -webkit-transform: rotateY(-180deg);
+}
+
+.reveal-first-half {
+    transition        : 1.0s linear;
+    -webkit-transform : rotateY(-90deg);
+}
+.reveal-last-half {
+    transition        : 1.0s linear;
+    -webkit-transform : rotateY(0deg);
+}
+
+
 .reveal {
     transition        : 2.0s linear;
-    /**
-     * Not that ugly as the JavaScript approach.
-     * Easy to maintain, the most portable solution.
-     */
-    -webkit-transform : rotateY(180deg);
+    -webkit-transform : rotateY(0deg);
 }
+/*.reveal-last-half {
+    transition        : 1.0s linear;
+    -webkit-transform : rotateY(180deg);
+}*/

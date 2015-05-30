@@ -24,23 +24,46 @@ class window.Hand extends Backbone.Collection
     console.log("Player standing.");
 
   play: -> # Only for dealer
-    @.at(0).flip()
+
+
+    # @.at(0).flip()
 
     # $(".card").addClass "reveal", 5000, (->
     #   console.log('callback')
     #   @playHand()).bind(this)
-    console.log('hello?')
-    console.log(this.at(0))
-    $(".card").addClass "reveal"
 
-    # context = this
+    #debugger;
 
-    # setTimeout context.playHand
-    #   ,2000
+
+    $covered = $(".dealer-hand-container").children().first().children()[1]
+
+    $firstCard = $($covered).children()
+
+
+    $firstCard.addClass("reveal-first-half")
+
+    setTimeout (->
+      $firstCard.removeClass "back"
+      #$firstCard.removeClass "reveal-first-half"
+      $firstCard.addClass "reveal-last-half"
+      # $firstCard.removeClass "reveal-first-half"
+      # $firstCard.addClass "reveal-last-half"
+
+      #@.at(0).set('revealingFirstHalf', false);
+      #@.at(0).set('revealingSecondHalf', true);
+      #debugger
+      ).bind(this)
+      ,1000
 
     setTimeout (->
       this.playHand()).bind(this)
       ,2000
+
+
+    # setTimeout (->
+    #   $firstCard.removeClass "back"
+    #   this.playHand()).bind(this)
+    #   ,2000
 
     # $(".card").addClass
     #   'reveal'
@@ -54,6 +77,7 @@ class window.Hand extends Backbone.Collection
     # .bind(result)
 
   playHand: ->
+    @.at(0).flip()
     console.log('playHand ran')
     while @scores()[0] < 17 or @scores()[1] < 17
       @hit()
