@@ -18,3 +18,52 @@
 #dealer-hand-container {
   clear: left;
 }
+
+.btn {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Georgia;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #00c400;
+  background-image: -webkit-linear-gradient(top, #00c400, #278a00);
+  background-image: -moz-linear-gradient(top, #00c400, #278a00);
+  background-image: -ms-linear-gradient(top, #00c400, #278a00);
+  background-image: -o-linear-gradient(top, #00c400, #278a00);
+  background-image: linear-gradient(to bottom, #00c400, #278a00);
+  text-decoration: none;
+}
+
+.hit-button {
+  background: #ff0000;
+  background-image: -webkit-linear-gradient(top, #ff0000, #a80022);
+  background-image: -moz-linear-gradient(top, #ff0000, #a80022);
+  background-image: -ms-linear-gradient(top, #ff0000, #a80022);
+  background-image: -o-linear-gradient(top, #ff0000, #a80022);
+  background-image: linear-gradient(to bottom, #ff0000, #a80022);
+}
+
+.stand-button {
+  background: #0000ff;
+  background-image: -webkit-linear-gradient(top, #0000ff, #0091ff);
+  background-image: -moz-linear-gradient(top, #0000ff, #0091ff);
+  background-image: -ms-linear-gradient(top, #0000ff, #0091ff);
+  background-image: -o-linear-gradient(top, #0000ff, #0091ff);
+  background-image: linear-gradient(to bottom, #0000ff, #0091ff);
+  -webkit-border-radius: 28;
+}
+
+.reveal {
+    transition        : 2.0s linear;
+    /**
+     * Not that ugly as the JavaScript approach.
+     * Easy to maintain, the most portable solution.
+     */
+    -webkit-transform : rotateY(180deg);
+}

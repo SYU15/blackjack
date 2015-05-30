@@ -25,12 +25,38 @@ class window.Hand extends Backbone.Collection
 
   play: -> # Only for dealer
     @.at(0).flip()
-    @playHand()
+
+    # $(".card").addClass "reveal", 5000, (->
+    #   console.log('callback')
+    #   @playHand()).bind(this)
+
+    $(".card").addClass "reveal"
+
+    # context = this
+
+    # setTimeout context.playHand
+    #   ,2000
+
+    setTimeout (->
+      this.playHand()).bind(this)
+      ,2000
+
+    # $(".card").addClass
+    #   'reveal'
+    # , 2000, (->
+    #   @playHand()).bind(this)
+
+
+    # result.pause = (->
+    #   cachedValue = this()
+    #   isPaused true)
+    # .bind(result)
 
   playHand: ->
+    console.log('playHand ran')
     while @scores()[0] < 17 or @scores()[1] < 17
       @hit()
-      setTimeout(@playHand.bind(this), 20000)
+      #setTimeout(@playHand.bind(this), 20000)
 
   hasAce: ->
     filtered = undefined
