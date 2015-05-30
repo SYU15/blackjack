@@ -1,10 +1,20 @@
 class window.AppView extends Backbone.View
-  template: _.template '
-    <button class="hit-button btn">Hit</button> <button class="stand-button btn">Stand</button>
-    <div class="player-hand-container playingCards fourColours rotateHand"></div>
-    <div class="dealer-hand-container playingCards fourColors rotateHand" style="clear:both"></div>
-  '
-
+  template: _.template '<div class="game-bar"> \
+                          <button class="hit-button btn">Hit</button> \
+                          <button class="stand-button btn">Stand</button> \
+                          <div class="player-wins"> \
+                            <span class="win-box"> \
+                              Wins: 2 \
+                            </span> \
+                          </div> \
+                          <div class="player-losses"> \
+                            <span class="loss-box"> \
+                               Losses: 3 \
+                            </span> \
+                          </div> \
+                        </div>
+                          <div class="playingCards fourColours rotateHand player-hand-container "></div> \
+                          <div class="playingCards fourColors rotateHand dealer-hand-container" style="clear:both"></div>'
   events:
     'click .hit-button': -> @model.get('playerHand').hit()
     'click .stand-button': -> @playRound()

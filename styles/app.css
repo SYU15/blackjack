@@ -1,21 +1,35 @@
-/*.card {
-  float: left;
-  border: solid 1px black;
-  width: 100px;
-  border-radius: 5px;
-  height: 140px;
-  margin-right: 20px;
+body {
+  background-image: url('../img/background.jpg');
+  color: white;
+  margin: 0px;
 }
 
-.covered {
-  background-color: black;
+.game-bar {
+  background-color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, .4);
+  margin: 0;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
-.hand {
-  overflow: auto;
+.player-wins {
+  float: right;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
 }
-*/
-#dealer-hand-container {
+
+.player-losses {
+  float: right;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+
+.player-hand-container {
+  margin-left: 20px;
+  clear: left;
+}
+.dealer-hand-container {
+  margin-left: 20px;
   clear: left;
 }
 
@@ -27,6 +41,7 @@
   color: #ffffff;
   font-size: 20px;
   padding: 10px 20px 10px 20px;
+  margin: 0 2px 0 2px;
   text-decoration: none;
 }
 
@@ -73,12 +88,8 @@
     -webkit-transform : rotateY(0deg);
 }
 
-
 .reveal {
     transition        : 2.0s linear;
     -webkit-transform : rotateY(0deg);
 }
-/*.reveal-last-half {
-    transition        : 1.0s linear;
-    -webkit-transform : rotateY(180deg);
-}*/
+

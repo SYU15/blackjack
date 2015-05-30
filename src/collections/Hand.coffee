@@ -25,16 +25,6 @@ class window.Hand extends Backbone.Collection
 
   play: -> # Only for dealer
 
-
-    # @.at(0).flip()
-
-    # $(".card").addClass "reveal", 5000, (->
-    #   console.log('callback')
-    #   @playHand()).bind(this)
-
-    #debugger;
-
-
     $covered = $(".dealer-hand-container").children().first().children()[1]
 
     $firstCard = $($covered).children()
@@ -44,37 +34,13 @@ class window.Hand extends Backbone.Collection
 
     setTimeout (->
       $firstCard.removeClass "back"
-      #$firstCard.removeClass "reveal-first-half"
       $firstCard.addClass "reveal-last-half"
-      # $firstCard.removeClass "reveal-first-half"
-      # $firstCard.addClass "reveal-last-half"
-
-      #@.at(0).set('revealingFirstHalf', false);
-      #@.at(0).set('revealingSecondHalf', true);
-      #debugger
       ).bind(this)
       ,1000
 
     setTimeout (->
       this.playHand()).bind(this)
       ,2000
-
-
-    # setTimeout (->
-    #   $firstCard.removeClass "back"
-    #   this.playHand()).bind(this)
-    #   ,2000
-
-    # $(".card").addClass
-    #   'reveal'
-    # , 2000, (->
-    #   @playHand()).bind(this)
-
-
-    # result.pause = (->
-    #   cachedValue = this()
-    #   isPaused true)
-    # .bind(result)
 
   playHand: ->
     @.at(0).flip()
