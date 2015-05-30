@@ -1,27 +1,36 @@
 class window.Hand extends Backbone.Collection
   model: Card
 
+  # defaults:
+  #   blackjack: false
+
   initialize: (array, @deck, @isDealer) ->
     initialScore = 0
     i = 0
-
+    @blackjack = false
     while i < array.length
       initialScore += array[i].get("value")  if array[i].get("rankName") isnt "a"
       initialScore += 11  if array[i].get("rankName") is "a"
       i++
-    console.log("PLAYER BLACKJACK :)")  if initialScore is 21 and !@isDealer
-    console.log("DEALER BLACKJACK :(") if initialScore is 21 and @isDealer
+    if initialScore is 21
+      @trigger 'blackjack', @
+      @blackjack = true
+    # console.log("PLAYER BLACKJACK :)")  if initialScore is 21 and !@isDealer
+    # console.log("DEALER BLACKJACK :(") if initialScore is 21 and @isDealer
+
+  hasBlackjack: ->
+    return @blackjack
 
   hit: ->
     @add(@deck.pop())
-
+    @blackjack = false
     if @scores()[0] is 21 or @scores()[1] is 21 then alert("21, recommended you stay unless you like losing money!") # 21 case
-    if @scores()[0] > 21
-      console.log("BUSTED :(")
+    if @scores()[0] >= 22
+      @trigger 'bust', @
       # location.reload()
 
   stand: ->
-    console.log("Player standing.");
+    @trigger 'stand', @
 
   play: -> # Only for dealer
 
@@ -48,6 +57,7 @@ class window.Hand extends Backbone.Collection
     while @scores()[0] < 17 or @scores()[1] < 17
       @hit()
       #setTimeout(@playHand.bind(this), 20000)
+    @stand()
 
   hasAce: ->
     filtered = undefined
@@ -69,6 +79,7 @@ class window.Hand extends Backbone.Collection
     [@minScore(), @minScore() + 10 * @hasAce()]
 
   bestScore: ->
+    if @blackjack then return 21.5
     bestScoreTotal = 0
     bestScoreTotal = @scores()[0]
     if (@scores()[1] > bestScoreTotal) and (@scores()[1] <= 21) then bestScoreTotal = @scores()[1]

@@ -12,16 +12,44 @@ body {
   box-sizing: border-box;
 }
 
-.player-wins {
+.player-chips {
+  font-size: 250%;
   float: right;
-  border-left: 1px solid white;
-  border-right: 1px solid white;
+  font-family: Georgia;
+  /*background-color: rgba(0, 255, 0, .5);*/
+  padding: 5px;
+  margin: 5px;
+  margin-top: -15px;
+}
+
+.chip-count {
+  padding: 0px;
+  top: -15px;
+  position: relative;
+}
+
+.player-wins {
+  font-size: 250%;
+  float: right;
+  font-family: Georgia;
+  background-color: rgba(0, 255, 0, .5);
+  padding: 5px;
+  margin: 5px;
+  margin-top: -5px;
+  /*border-left: 1px solid white;
+  border-right: 1px solid white;*/
 }
 
 .player-losses {
+  font-size: 250%;
   float: right;
-  border-left: 1px solid white;
-  border-right: 1px solid white;
+  font-family: Georgia;
+  background-color: rgba(255, 0, 0, .5);
+  padding: 5px;
+  margin: 0px;
+  margin-top: -5px;
+  /*border-left: 1px solid white;
+  border-right: 1px solid white;*/
 }
 
 .player-hand-container {
@@ -55,6 +83,7 @@ body {
   text-decoration: none;
 }
 
+
 .hit-button {
   background: #ff0000;
   background-image: -webkit-linear-gradient(top, #ff0000, #a80022);
@@ -72,6 +101,15 @@ body {
   background-image: -o-linear-gradient(top, #0000ff, #0091ff);
   background-image: linear-gradient(to bottom, #0000ff, #0091ff);
   -webkit-border-radius: 28;
+}
+
+.btn:disabled {
+  background: #545454;
+  background-image: -webkit-linear-gradient(top, #545454, #545454);
+  background-image: -moz-linear-gradient(top, #545454, #545454);
+  background-image: -ms-linear-gradient(top, #545454, #545454);
+  background-image: -o-linear-gradient(top, #545454, #545454);
+  background-image: linear-gradient(to bottom, #545454, #545454);
 }
 
 .back {
